@@ -8,3 +8,17 @@
     display: flex;
     justify-content: center;
 }
+
+.menu-list{
+    display: flex;
+    list-style-type: none;
+}
+
+.menu-list li{
+    padding: 10px;
+}
+
+.menu-area{
+    display: flex;
+    justify-content: center;
+}
