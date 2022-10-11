@@ -1,5 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useNavigate } from "react-router-dom";
 import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
@@ -14,6 +15,17 @@ const Navbar = () => {
         'Sale',
         '지속가능성',
     ]
+    const navigate = useNavigate();
+
+    const search = (event) => {
+      if (event.key === "Enter") {
+        //입력한 검색어를 읽어와서
+        let keyword = event.target.value;
+  
+        // url을 바꿔준다
+        navigate(`/?q=${keyword}`);
+      }
+    };
   return (
     <div>
         <div>
@@ -33,10 +45,10 @@ const Navbar = () => {
                     <li>{menu}</li>
                     ))}
                 </ul>
-            <div>
-                <FontAwesomeIcon icon={faSearch}/>
-                <input type="text"/>
-            </div>
+                <div className="search-box">
+          <FontAwesomeIcon icon={faSearch} />
+          <input type="text" onKeyPress={(event) => search(event)} />
+        </div>
         </div>
     </div>
   )
