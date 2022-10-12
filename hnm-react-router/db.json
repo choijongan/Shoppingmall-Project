@@ -56,7 +56,7 @@
           "title":"자카드 셔츠 드레스",
           "price":39900,
           "choice":false,
-          "new":false,
+          "new":true,
           "size":["S","M","L"]
 
       },

@@ -4,8 +4,12 @@ import ProductCard from '../component/ProductCard';
 import { useSearchParams } from "react-router-dom";
 
 const ProductAll = () => {
-  const [productList, setProductList] = useState([]);
+  let [productList, setProductList] = useState([]);
+  let [query, setQuery] = useSearchParams();
+
   const getProducts= async ()=>{
+    let searchQuery = query.get("q") || "";
+    
     let url = `http://localhost:5000/products`
     let response = await fetch(url);
     let data = await response.json();
@@ -13,7 +17,7 @@ const ProductAll = () => {
   }
   useEffect(()=>{
       getProducts()
-   },[])
+   },[query])
   return (
     <div>
         <Container>
@@ -25,7 +29,7 @@ const ProductAll = () => {
             ))}
           </Row>
         </Container>
-        <ProductCard/>
+        
     </div>
   )
 }
