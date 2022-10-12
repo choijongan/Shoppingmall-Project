@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { Col, Container, Row } from 'react-bootstrap'
 import ProductCard from '../component/ProductCard';
+import { useSearchParams } from "react-router-dom";
 
 const ProductAll = () => {
   const [productList, setProductList] = useState([]);
@@ -14,6 +16,15 @@ const ProductAll = () => {
    },[])
   return (
     <div>
+        <Container>
+          <Row>
+          {productList.map((menu)=> (
+              <Col lg={3}>
+                <ProductCard item={menu} />
+              </Col>
+            ))}
+          </Row>
+        </Container>
         <ProductCard/>
     </div>
   )

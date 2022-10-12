@@ -1,13 +1,18 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 
-const ProductCard = () => {
+const ProductCard = ({item}) => {
+    const navigate = useNavigate();
+    const showDetail = () => {
+      navigate(`/product/${item.id}`);
+    };
   return (
-    <div>
-        <img src='//lp2.hm.com/hmgoepprod?set=source[/b3/10/b3107100df8deecc3c86264d9ad99daeb847e620.jpg],origin[dam],category[],type[LOOKBOOK],res[z],hmver[1]&call=url[file:/product/main]'/>
-        <div>Conscious choice</div>
-        <div>집탑 리브니트 스웨터</div>
-        <div>₩39900</div>
-        <div>신제품</div>
+    <div className="card" onClick={showDetail}>
+        <img src={item?.img}/>
+        <div>{item?.choice == true?'Conscious choice' : ''}</div>
+        <div>{item?.title}</div>
+        <div>₩{item?.price}</div>
+        <div>{item?.new == true?'신제품' : ''}</div>
     </div>
   )
 }
