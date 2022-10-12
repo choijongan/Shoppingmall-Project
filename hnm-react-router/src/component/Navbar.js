@@ -15,7 +15,12 @@ const Navbar = () => {
         'Sale',
         '지속가능성',
     ]
+
     const navigate = useNavigate();
+
+    const goToLogin=()=>{
+      navigate('/login')
+    }
 
     const search = (event) => {
       if (event.key === "Enter") {
@@ -29,7 +34,7 @@ const Navbar = () => {
   return (
     <div>
         <div>
-            <div class="login-button">
+            <div class="login-button" onClick={goToLogin}>
                 <FontAwesomeIcon icon={faUser} />
                 <div>로그인</div>
             </div>
