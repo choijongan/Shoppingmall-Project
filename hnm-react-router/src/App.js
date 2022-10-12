@@ -5,6 +5,7 @@ import ProductAll from './page/ProductAll';
 import Login from './page/Login';
 import ProductDetail from './page/ProductDetail';
 import Navbar from './component/Navbar';
+import { useState } from 'react';
 
 
 //1. 전체상품페이지, 로그인페이지, 상품상세페이지
@@ -18,6 +19,7 @@ import Navbar from './component/Navbar';
 //6. 로그인을 하면 로그아웃이 보이고 로그아웃을 하면 로그인이 보인다.
 //7 상품을 검색할 수 있다.
 function App() {
+  const[authenticate,setAuthenticate]=useState(false) //true면 로그인이 됨, false면 로그인이 안됨.
   return (
     <div>
       <Navbar/>
