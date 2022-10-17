@@ -1,10 +1,14 @@
 import React from 'react'
 import { Form, Button, Container } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 
-const Login = () => { 
+const Login = ({setAuthenticate}) => { 
+    const navigate = useNavigate()
   const loginUser = (event) => {
     event.preventDefault(); //form을 쓰게되면 preventDefault를 써줘라.(안쓰면 계속 새로고침 자동으로 돌아감.)
     console.log("login user function issue")
+    setAuthenticate(true);
+    navigate('/')
   }
   return ( //type이 submit으로 되있는 경우 onclick으로 주면안됨. onsubmit으로 줘야됨.(form문에서 쓰인다.)
     <Container>
