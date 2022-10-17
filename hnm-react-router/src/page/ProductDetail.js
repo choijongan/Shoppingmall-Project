@@ -25,8 +25,6 @@ const ProductDetail = () => {
         <Col>
           <div>{product?.title}</div>
           <div>{product?.price}</div>
-          <div>{product?.choice}</div>
-          <div>{product?.size}</div>
         </Col>
       </Row>
     </Container>
